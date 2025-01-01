@@ -1,0 +1,47 @@
+/* src/Timer.css */
+.timer-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  #timer-display {
+    font-size: 2em;
+    margin: 20px 0;
+  }
+  
+  #name-display {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  #name-display input {
+    text-align: center;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1em;
+    margin: 5px;
+    cursor: pointer;
+  }
+
+  .button {
+    color: white;
+    border: none;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 12px;
+  }
+  
+  .green {
+    background-color: #4CAF50;
+  }
+
+  .red {
+    background-color: #f44336;
+  }
+
+  .grey {
+    background-color: #808080;
+  }
