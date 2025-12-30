@@ -1,0 +1,6 @@
+.timers-container {
+  display: flex;           /* horizontal layout */
+  justify-content: center; /* center horizontally */
+  gap: 20px;               /* space between timers */
+  margin-top: 50px;
+}

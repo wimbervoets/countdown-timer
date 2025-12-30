@@ -1,11 +1,10 @@
-// src/App.tsx
-import Timer from './Timer';
+import Timers from './Timers';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Timer />
+      <Timers />
     </div>
   );
 }

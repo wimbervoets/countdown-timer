@@ -2,10 +2,15 @@
 import React, { useState, useEffect } from 'react';
 import './Timer.css';
 
-const Timer: React.FC = () => {
+interface TimerProps {
+  name?: string;       // optional name prop
+  bgColor?: string;    // optional background color prop
+}
+
+const Timer: React.FC<TimerProps> = ({ name: initialName = '', bgColor = 'white' }) => {
   const [countdownValue, setCountdownValue] = useState<number>(60);
   const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
-  const [name, setName] = useState<string>('');
+  const [name, setName] = useState<string>(initialName);
 
   useEffect(() => {
     if (countdownValue === 0 && timer) {
@@ -29,19 +34,10 @@ const Timer: React.FC = () => {
     }
   };
 
-  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setName(event.target.value);
-  };
-
-//   const handleAddSecondsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-//     setAddSeconds(Number(event.target.value));
-//   };
-
   const add10Seconds = () => {
     setCountdownValue(prevValue => prevValue + 10);
   };
 
-  // Functie om 20 seconden van de tijd af te trekken
   const subtract20Seconds = () => {
     setCountdownValue(prevValue => (prevValue - 20 >= 0 ? prevValue - 20 : 0));
   };
@@ -53,28 +49,13 @@ const Timer: React.FC = () => {
   };
 
   return (
-    <div className="timer-container">
-      <div id="name-display">
-        <input
-            type="text"
-            placeholder="Enter name"
-            value={name}
-            onChange={handleNameChange}
-        />
-      </div>
-      {/* <div id="timer-display">{formatTime(countdownValue)}</div> */}
+    <div className="timer-container" style={{ backgroundColor: bgColor }}>
+      {name && <p>Timer for: {name}</p>}
       <div id="timer-display">{countdownValue} seconden</div>
       <button onClick={startCountdown} className="button green">Start</button>
       <button onClick={stopCountdown} className="button red">Stop</button>
-      {/* {name && <p>Timer for: {name}</p>} */}
       <div className="add-time-container">
-      <br/>
-        {/* <input
-            type="number"
-            placeholder="Seconds to add"
-            value={addSeconds}
-            onChange={handleAddSecondsChange}
-        /> */}
+        <br/>
         <button onClick={add10Seconds} id="add-time-button" className="button green">Voeg 10s toe</button>
         <button onClick={subtract20Seconds} className="button red">Verlaag 20s</button>
       </div>

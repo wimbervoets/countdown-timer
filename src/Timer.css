@@ -1,8 +1,14 @@
-/* src/Timer.css */
 .timer-container {
+    width: 200px; /* keeps timers the same size */
     text-align: center;
-    margin-top: 50px;
-  }
+    padding: 20px; /* spacing inside the border */
+    margin-top: 0; /* spacing handled by container now */
+    border: 2px solid #333; /* solid border around timer */
+    border-radius: 12px; /* rounded corners */
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2); /* optional shadow */
+    background-color: #f9f9f9; /* optional light background */
+}
+
   
   #timer-display {
     font-size: 2em;
